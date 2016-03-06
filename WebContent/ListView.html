@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List view of Care takers</title>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name = "format-detection" content = "telephone=no" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    
+    
+    
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/newstyle.css">
+    <link type="text/css" rel="stylesheet" href="css/loginstyle.css" /> 
+    
+	<script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+   <!--  <script src="js/superfish.js"></script> -->
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <!-- <script src="js/jquery.ui.totop.js"></script> -->
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <!-- <script src="js/jquery.equalheights.js"></script> -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+   <!--<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>  -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+	<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+ 	<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> -->
+	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+    
+    <!--[if lt IE 9]>
+    <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+    <link rel="stylesheet" href="assets/tm/css/tm_docs.css" type="text/css" media="screen">
+    <script src="assets/assets/js/html5shiv.js"></script> 
+    <script src="assets/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<!--==============================header=================================-->
+<header id="header">
+      <div class="container">
+        <h1 class="navbar-brand navbar-brand_"><span id="logotxt">CareTakers For You</span><!--  <a href="index.html"><img alt="Grill point" src="img/logo.png"></a>--></h1>
+      </div>
+      <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="index.html">home</a>
+                   
+                  </li>
+                  <li><a href="AboutUs.html">About Us</a></li>
+                  <li class="active"><a href="Services.html">Services</a>
+                 <!-- <ul>
+                      <li><img src="img/arrowup.png" alt=""><a href="#">Pet Care</a></li>
+                      <li><a href="#">ChildCare</a></li>
+                      <li><a href="#">OldageCare</a></li>
+                      <li><a class="last" href="#">PlantCare</a>
+                        <ul>
+                           <li><a href="#">fresh</a></li>
+                           <li><a class="last" href="#">archive</a></li>                       
+                        </ul>
+                      </li>
+                  </ul> --> 
+                  </li><!-- about me -->
+                 <!--  <li><a href="index-2.html">gallery</a></li> -->
+                  <li><a href="policy.html">Policy</a></li>
+                  <li><a href="index-4.html">location</a></li>
+                   <li><a href="LocationAnalysis.html">ChartView</a></li>
+                </ul>
+            </nav>
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                
+                  <li class="active"><a href="ListView.html">List View</a></li>
+                  <li><a href="MapView.html">Map View</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row9=================================-->
+    <div class="row_9">
+        <div class="container">
+            <div class="row privacy_page">
+                <div id="user"></div> <a id="logout" class="btn btn_red" onclick="logout()">LOGOUT</a> 
+               <!-- <div class="col-lg-8 col-md-8 col-sm-8"> --> 
+                    
+             
+		<div class="col-md-12" style="margin-top:20px;">
+		<!-- <div class="col-md-9"> -->
+		<h2 align="center">List of CareTakers</h2>
+		<div class="well col-md-12" style="height:150px;">
+		<h4>Filters</h4>
+		<div class="col-md-5">
+		<h5 class="text-uppercase"><span class="range">Price Range</span></h5>
+		<form>
+		<p>
+		
+		  <input type="text" id="rleft" readonly>
+		  <input type="text" id="rright" readonly>
+		 
+		</p>
+      <div id="slider-range"></div>
+       </form>
+      </div>
+      <div class="col-md-7">
+       
+      <fieldset>
+     <legend>Services</legend>
+      <input type="checkbox" id="pet"  name="servicetype" value="P" class="scheckbox"/>&nbsp;<span>Pet Care</span>&nbsp;&nbsp;
+       <input type="checkbox" id="child" name="servicetype" value="C" class="scheckbox"/>&nbsp;<span>Child Care</span>&nbsp;&nbsp;
+        <input type="checkbox" id="old" name="servicetype" value="O" class="scheckbox"/>&nbsp;<span>Oldage Care</span>&nbsp;&nbsp;
+         <input type="checkbox" id="plant" name="servicetype" value="Pl" class="scheckbox"/>&nbsp;<span>Plant Care</span>
+     </fieldset>
+      </div>
+      </div>
+      <!-- Login Popup  -->           
+         <div id="modal" class="popupContainer" style="display: none;">
+					<header class="popupHeader">
+						<span class="header_title">Login</span> 
+						<span class="modal_close">
+						<i class="fa fa-times"></i></span>
+					</header>
+		
+					<section class="popupBody">
+		
+						<!-- Username & Password Login form -->
+						<div class="user_login">
+						
+							<form>
+								<label>Email / Username</label> <input type="text" id="email" />
+								<br/> <label>Password</label> <input type="password" id="pass" />
+								<br/>
+		
+								<div class="action_btns">
+									<div class="one_half last">
+										<input type="submit" value="Login" id="button"
+											class="btn btn_red"><br/><br/>
+										<a href="RegistrationPage.html" class="btn btn_red">New User? Register</a>
+									</div>
+								</div>
+							</form>
+						</div>
+					</section>
+		</div>
+		<!-- Login Popup  -->  
+                  <table border="2px"  cellpadding="8" id="listview" align="center">
+                    
+                     <tr>
+	                    <th class="col-md-3"><h3><b>Name</b></h3></th>
+	                    <th class="col-md-1"><h3><b>Services Provided</b></h3></th>
+	                     <th class="col-md-4"><h3><b>Availability</b></h3></th>
+	                      <th class="col-md-2"><h3><b>Location</b></h3></th>
+	                       <th class="col-md-1"><h3><b>Charges(day)</b></h3></th>
+	                        <th class="col-md-1"><h3><b>Rating</b></h3></th>
+                    </tr>
+                  
+                  </table>
+           <!-- </div>
+         <div class="col-md-3" id="reco">
+          <h2 align="center">Recommendations</h2>
+          <div class="cover-container">
+<div class="cover-item"><p><img src="img/page1_img1.jpg" alt="prod1"/><p>#CaretakerName<br/>$13</p></div>
+<div class="cover-item"><p><img src="img/page1_img2.jpg" alt="prod2"/><p>#CaretakerName<br/>$13</p></div>
+<div class="cover-item"><p><img src="img/page1_img3.jpg" alt="prod1"/><p>#CaretakerName<br/>$13</p></div>
+</div>
+          </div>    -->     
+         </div>
+                   <!--  <div id="containertable"></div> -->
+       
+		        <!-- <ul class="pagination col-md-12" align="center">
+		        <li class="disabled"><a href="#">&laquo;</a></li>
+		        <li class="active"><a href="#">1</a></li>
+		        <li><a href="#">2</a></li>
+		        <li><a href="#">3</a></li>
+		        <li><a href="#">4</a></li>
+		        <li><a href="#">5</a></li>
+		        <li><a href="#">&raquo;</a></li>
+		        </ul> -->
+              
+               <!-- </div> --> 
+                
+                
+             </div> 
+        </div>
+    </div>
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <ul class="social_icons clearfix">
+                     <li><a href="http://www.facebook.com/sharer.php?u=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Share this page on Facebook"><img src="img/follow_icon1.png" alt=""></a></li>
+                     <li><a href="https://plusone.google.com/_/+1/confirm?hl=en&url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Plus one this page on Google"><img src="img/follow_icon2.png" alt=""></a></li>
+                     <li><a href="http://twitter.com/share?url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Tweet this page on Twitter"><img src="img/follow_icon3.png" alt=""></a></li>
+                   
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footerlogo footercol">
+                <a class="smalllogo2 logo" href="index.html"><span id="logotxtfoot">CareTakers For You</span><!--  <img src="img/logofooter.png" alt="">--></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <p class="footerpriv">&copy; 2013 &bull; <a class="privacylink" href="index-5.html">Privacy policy</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- <script src="js/tm-scripts.js"></script> -->
+<!--Coded by corvus-->
+</body>
+</html>
+<script type="text/javascript">
+
+
+
+if(sessionStorage.length>0)
+	{
+	document.getElementById('user').innerHTML="Hi "+sessionStorage.getItem("user")+",";
+	document.getElementById('logout').style.display="block";
+	
+	}
+
+
+function logout(){
+	
+	
+	
+		sessionStorage.clear();
+		window.location.href="index.html";	
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+
+
+function checkLogin(id){
+	
+	if(sessionStorage.length>0)
+	{
+	
+	
+	var keys = ["BD", "Rate", "caretaker_name", "from", "to", "selectfrom", "selectto", "service1", "totalcharge"];
+	for(var i=0;i<keys.length;i++)
+		{
+		sessionStorage.removeItem(keys[i]);
+		}
+	
+	sessionStorage.setItem("caretaker",id);
+	window.location.href='http://localhost:8080/CaretakersForYou/ProfileView.html';
+	
+}
+	return false;
+}
+
+
+	 var queryObject="";
+     var queryObjectLen="";
+	$.ajax({
+		 type : 'POST',
+         url : 'ViewDetails.jsp',
+         dataType:'json',
+         success : function(data) {
+        	
+             queryObject = eval('(' + JSON.stringify(data) + ')');
+            
+           
+          
+             queryObjectLen = queryObject.details.length;
+             var rpath='';
+             for(i=0;i<queryObjectLen;i++)
+            	 {
+            	 
+            	 switch(queryObject.details[i].rating){
+  	    		case 1 :
+  	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+  	    			break;
+  	    		case 2 :
+  	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+  	    			break;
+  	    		case 3 :
+  	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+  	    			break;
+  	    		case 4 :
+  	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+  	    			break;
+  	    		case 5 :
+  	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+  	    			break;
+  	    		
+  	    		}
+            	
+            	 var name = queryObject.details[i].name;
+         		 var service = queryObject.details[i].service;
+            	 var availfrom = queryObject.details[i].availfrom;
+            	 var availto = queryObject.details[i].availto;
+            	 var charge = queryObject.details[i].charge;
+            	 var city = queryObject.details[i].city;
+            	 var star = queryObject.details[i].rating;
+            	 var id= queryObject.details[i].id;
+            	 var profilepic= queryObject.details[i].profilepic;
+            	 
+            	 var fromdate = new Date(availfrom);
+            	 fromdate = fromdate.getMonth() + '/' + fromdate.getDate() + '/' +  fromdate.getFullYear();
+            	 var todate = new Date(availto);
+            	 todate = todate.getMonth() + '/' + todate.getDate() + '/' +  todate.getFullYear();
+            	
+            	 var row = '<tr class=\"drow\"><td class=\"col-md-3\"><img src='+profilepic+' alt="dp" id="profilepic"><br/><a href="Login.html?abc='+id+'" onclick="checkLogin('+id+')">'+name+'</a></td><td class=\"col-md-1\">'+service+'</td><td class=\"col-md-2\">'+fromdate+' - '+todate+'</td><td class=\"col-md-2\">'+city+'</td><td class=\"col-md-1\">'+charge+'</td><td class=\"col-md-2\">'+rpath+'</td></tr>';
+             	
+            	 $('#listview').append(row);
+            	 }
+             
+         },
+             error : function(xhr, type) {
+             alert('server error occured')
+         }
+		
+	});
+	
+
+	 
+		
+		
+		$(function() {
+		     $( "#slider-range" ).slider({
+		      range: true,
+		      min: 0,
+		      max: 100,
+		      values: [ 0, 100],
+		      slide: function( event, ui ) {
+		        $( "#rleft" ).val( "$" + ui.values[ 0 ]);
+		        $( "#rright" ).val( "$" + ui.values[ 1 ]);
+		        var range = ui.values[ 0 ]+','+ui.values[ 1 ];
+		        
+		         $.ajax({
+		    		
+		     	    url : 'rest/approveList/getServiceByCost',
+		     	    type: 'POST',
+		     	    data : range,
+		     	    contentType: 'application/json; charset=utf-8',
+		     	    dataType : 'json',
+		     	    processData: true,
+		     	    success: function(a,data)
+		     	    {
+		     	    	$('.drow').remove();
+		     	    	var caretaker = eval('(' + JSON.stringify(a) + ')'); 
+		       	      	clist = caretaker.id.length;
+		                var rpath=''; 
+		                for(i=0;i<clist;i++)
+		               	 {
+		               	 
+		               	 	switch(caretaker.rating[i]){
+		     	    		case 1 :
+		     	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+		     	    			break;
+		     	    		case 2 :
+		     	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+		     	    			break;
+		     	    		case 3 :
+		     	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+		     	    			break;
+		     	    		case 4 :
+		     	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+		     	    			break;
+		     	    		case 5 :
+		     	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+		     	    			break;
+		     	    		
+		     	    		}
+		               	
+		               	 var name = caretaker.name[i];
+		            	 var service = caretaker.service[i];
+		               	 var availfrom = caretaker.availfrom[i];
+		               	 var availto = caretaker.availto[i];
+		               	 var charge = caretaker.charge[i];
+		               	 var city = caretaker.city[i];
+		               	 var star = caretaker.rating[i];
+		               	 var id= caretaker.id[i];
+		               	 var profilepic= caretaker.profilepic[i];
+		               	
+		               	 
+		               	 var fromdate = new Date(availfrom);
+		               	 fromdate = fromdate.getMonth() + '/' + fromdate.getDate() + '/' +  fromdate.getFullYear();
+		               	 var todate = new Date(availto);
+		               	 todate = todate.getMonth() + '/' + todate.getDate() + '/' +  todate.getFullYear();
+		               	
+		               	 var row='<tr class=\"drow\"><td class=\"col-md-3\"><img src='+profilepic+' alt="dp" id="profilepic"><br/><a href="Login.html?abc='+id+'" onclick="checkLogin('+id+')">'+name+'</a></td><td class=\"col-md-1\">'+service+'</td><td class=\"col-md-2\">'+fromdate+' - '+todate+'</td><td class=\"col-md-2\">'+city+'</td><td class=\"col-md-1\">'+charge+'</td><td class=\"col-md-2\">'+rpath+'</td></tr>';
+		               	 
+		               	 
+		               	 $('#listview').append(row);
+		               	
+		               	
+		               	 }
+		                
+		                    	
+		     	    },
+		     	    error: function()
+		     	    {
+		     	    	alert("Caregiver Service not available");
+		     	    }
+		     	}); 
+		         
+		        
+		      }
+		    }); 
+		    
+		    
+		   $( "#rleft" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) );
+		   $( "#rright" ).val( "$" + $( "#slider-range" ).slider( "values", 1 ) );
+		  
+		   
+		  });
+
+		
+		
+		/*******************/
+		//servicewise  classification
+	$('.scheckbox').change(function() {
+		
+		
+	var checkedValues = $('.checkbox:checked').map(function() {
+	    return this.value;
+	}).get().join();
+	
+	//alert(checkedValues);
+	
+$.ajax({
+		
+ 	    url : 'rest/approveList/getService',
+ 	    type: 'POST',
+ 	    data : checkedValues,
+ 	    contentType: 'application/json; charset=utf-8',
+ 	    dataType : 'json',
+ 	    processData: true,
+ 	    success: function(a,data)
+ 	    {
+ 	     
+ 	    	/* var caretaker,caretakerlist='',listHere='',caretakerlist='',i,ctlist='';
+	    	caretaker = eval('(' + JSON.stringify(a) + ')'); 
+	 	      caretakerlist = caretaker.uid.length;
+	 	     
+	 	      listHere = document.getElementById("listdisplayblock");
+	 	   	  
+	 	   	if(caretakerlist==0 || caretakerlist==null)
+	 	   		{
+	 	   	ctlist+='<h4 align=\"center\" style=\"margin-top:50px;color:\"#009999\";\">There are no unapproved user profiles for now</h4>';
+	 	   		}
+	 	   	else{
+	 	       for(i=0;i<caretakerlist;i++)
+	 	    	   {
+	 	    	   
+	 	    	 
+	 	    	  ctlist+=
+	 	    	 '<details class=\"info\">'+
+	 	    	'<summary class=\"col-md-12\"><label>'+caretaker.fname[i]+' '+caretaker.lname[i]+'</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type=\"checkbox\" id=\"'+caretaker.uid[i]+'\" onchange=\"approve()\" class=\"check\"/></summary>'+
+
+	 	 	      '<p id=\"subinfo\"><br/><b>Service provided:</b> '+caretaker.service[i]+'<br/><b>Address:</b> '+caretaker.address[i]+', '+caretaker.city[i]+
+	 	 	      '<br/><b>Proof provided:</b> '+caretaker.prooftype[i]+'&nbsp;&nbsp;&nbsp;&nbsp;<img src='+caretaker.proofurl[i]+' alt=\"proofimage\"/><br/><br/></p></details><hr id=\"horizontal\"/>';
+	 	    	  //break;
+	 	    	   };
+	 	    	   
+	 	   		}
+	 	   	
+	 	       
+	 	      listHere.innerHTML=ctlist; */
+	    	
+	    	
+ 	    	
+ 	    },
+ 	    error: function()
+ 	    {
+ 	    	alert("Services not registered by any caretaker");
+ 	    }
+ 	}); 
+	
+	
+	
+	
+	
+	
+	});
+	
+		/*******************/
+		
+		
+</script>

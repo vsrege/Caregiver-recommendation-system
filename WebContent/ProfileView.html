@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>List view of Care takers</title>
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name = "format-detection" content = "telephone=no" />
+    <meta name="description" content="Your description">
+    <meta name="keywords" content="Your keywords">
+    <meta name="author" content="Your name">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css" >
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/newstyle.css">
+    <link type="text/css" rel="stylesheet" href="css/loginstyle.css" /> 
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/jquery-ui.css">
+    
+    
+	<script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.2.1.js"></script>
+  
+    <script src="js/jquery.mobilemenu.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+
+    <script src="js/jquery.touchSwipe.min.js"></script>
+   
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+ 
+  
+<script type="text/javascript" src="js/jquery.leanModal.min.js"></script>
+
+ 
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="js/jquery-ui.js"></script>
+
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!--[if lt IE 9]>
+    <div style='text-align:center'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div>  
+    <link rel="stylesheet" href="assets/tm/css/tm_docs.css" type="text/css" media="screen">
+    <script src="assets/assets/js/html5shiv.js"></script> 
+    <script src="assets/assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+<!--==============================header=================================-->
+<header id="header">
+      <div class="container">
+        <h1 class="navbar-brand navbar-brand_"><span id="logotxt">CareTakers For You</span><!--  <a href="index.html"><img alt="Grill point" src="img/logo.png"></a>--></h1>
+      </div>
+      <div class="menuheader">
+          <div class="container">
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                  <li><a href="index.html">home</a>
+                   
+                  </li>
+                  <li><a href="AboutUs.html">About Us</a></li>
+                  <li class="active"><a href="Services.html">Services</a>
+                 
+                  </li>
+                  <li><a href="policy.html">Policy</a></li>
+                  <li><a href="index-4.html">location</a></li>
+                   <li><a href="LocationAnalysis.html">ChartView</a></li>
+                </ul>
+            </nav>
+            <nav class="navbar navbar-default navbar-static-top tm_navbar" role="navigation">
+                <ul class="nav sf-menu">
+                
+                  <li class="active"><a href="ListView.html">List View</a></li>
+                  <li><a href="MapView.html">Map View</a></li>
+                </ul>
+            </nav>
+          </div>
+      </div>
+</header>
+<!--==============================content=================================-->
+<div id="content">
+    <!--==============================row9=================================-->
+    <div class="row_9">
+        <div class="container">
+            <div class="row privacy_page">
+                <div id="user"></div> <a id="logout" class="btn btn_red" onclick="logout()">LOGOUT</a> 
+               <!-- <div class="col-lg-8 col-md-8 col-sm-8"> --> 
+                    
+         <br/><br/><br/>
+		   
+		<div class="col-md-12">
+		
+		<h2 align="center">Caretaker Profile</h2>
+		<div id="profiledisplayblock" class="row">
+		
+		
+		
+		</div>
+      	
+               
+        
+           
+         </div>
+                   
+                
+                
+             </div> 
+        </div>
+    </div>
+</div>
+<!--==============================footer=================================-->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <ul class="social_icons clearfix">
+                     <li><a href="http://www.facebook.com/sharer.php?u=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Share this page on Facebook"><img src="img/follow_icon1.png" alt=""></a></li>
+                     <li><a href="https://plusone.google.com/_/+1/confirm?hl=en&url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Plus one this page on Google"><img src="img/follow_icon2.png" alt=""></a></li>
+                     <li><a href="http://twitter.com/share?url=<?php if(is_home()){echo home_url();}else{the_permalink();} ?>" target="_blank" title="Tweet this page on Twitter"><img src="img/follow_icon3.png" alt=""></a></li>
+                   
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footerlogo footercol">
+                <a class="smalllogo2 logo" href="index.html"><span id="logotxtfoot">CareTakers For You</span><!--  <img src="img/logofooter.png" alt="">--></a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 footercol">
+                <p class="footerpriv">&copy; 2013 &bull; <a class="privacylink" href="index-5.html">Privacy policy</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.min.js"></script>
+
+<!--Coded by corvus-->
+</body>
+
+<script>
+function logout(){
+	
+	
+	
+	sessionStorage.clear();
+	window.location.href="index.html";	
+}
+
+$( document ).ready(function() {
+	
+	
+   
+	var fromdate=new Date(sessionStorage.getItem("from"));
+	var todate=new Date(sessionStorage.getItem("to"));
+	
+	$( "#from" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 2,
+      minDate: fromdate,
+      maxDate: todate,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 2,
+      maxDate: todate,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });	
+		
+
+if(sessionStorage.length>0)
+	{
+	document.getElementById('user').innerHTML="Hi "+sessionStorage.getItem("user")+",";
+	document.getElementById('logout').style.display="block";
+	
+	}
+
+
+function logout(){
+	
+	
+	
+		sessionStorage.clear();
+		window.location.href="index.html";	
+}
+
+
+/*<img src=\"img/verify.png\" alt=\"stamp\" id=\"stamp\"/>  */
+
+
+var caretaker = sessionStorage.getItem('caretaker');
+$.ajax({
+	
+    url : 'rest/approveList/viewCaretakerProfile',
+    type: 'POST',
+    data: caretaker,
+	contentType: 'application/json; charset=utf-8',
+	    dataType : 'text',
+	    processData: true,
+	    async:false,
+    success: function(a, data)
+    {
+   	
+    	var caretaker,caretakerlist='',listHere='',caretakerlist='',i,ctlist='',rpath='';
+    	 
+ 		caretaker = JSON.parse(a);
+ 		 
+ 	      listHere = document.getElementById("profiledisplayblock");
+ 	   	  
+ 	   	
+ 	       for(i=0;i<1;i++)
+ 	    	   {
+ 	    	   
+ 	    	 sessionStorage.setItem("from",caretaker.fromdate[i]);
+ 	    	sessionStorage.setItem("to",caretaker.todate[i]);
+ 	    	sessionStorage.setItem("Rate",caretaker.charge[i]);
+ 	    	sessionStorage.setItem("service1",caretaker.service[i]);
+ 	    	sessionStorage.setItem("BD",caretaker.BD[i]);
+ 	    	sessionStorage.setItem("caretaker_name",caretaker.fname[i]+' '+caretaker.lname[i]);
+ 	    	  ctlist+=
+ 	    	 '<div class=\"well row prof col-md-12\">'+
+ 	    	 '<div class=\"col-md-5\"><img id=\"profilepagepic\" class=\"cover-item\" src=\"'+caretaker.profilepicurl[i]+'\" alt=\"profile picture\"/><br/><h2 id=\"verify\" align=\"center\">VERIFIED ✓</h2></div>'+
+ 	    	 '<div class=\"col-md-7\"><label class=\"bigfont\">'+caretaker.fname[i]+' '+caretaker.lname[i]+'</label>'+
+ 	 	      '<br/><p><b>Service:</b> '+caretaker.service[i]+'</p><p><b>Address:</b> '+caretaker.address[i]+', '+caretaker.city[i]+', '+caretaker.pincode[i]+
+ 	 	      '</p><p><b>Availability:</b> '+caretaker.fromdate[i]+' to '+caretaker.todate[i]+'</p><p><b>Charge:</b> '+caretaker.charge[i]+' /day</p>';
+ 	    	 
+ 	    	   }
+ 	       
+ 	     
+ 	     	var ID = sessionStorage.getItem("caretaker");
+ 	     	
+ 	     	var service1 = sessionStorage.getItem("service1");
+ 	     	var chk='';
+ 	     	var BD=sessionStorage.getItem('BD');
+ 	     	
+ 	     	var arr = service1.split(",");
+ 	     	for(var count in arr)
+ 	     	{
+ 	     		   var checkbox = '<input type=\"checkbox\" value=\"'+arr[count]+'\" id =\"'+arr[count]+'\"/>';
+ 	     		   chk+=checkbox + arr[count] +'&nbsp;&nbsp';
+ 	     	    
+ 	     	}
+ 	     	
+ 	     		
+ 	     	
+ 	    	   
+ 	       if(caretaker.rating.length>0)
+ 	       {
+ 	    	   ctlist+='<label class=\"bigfont\">Reviews</label><br/><div class=\"review_container\">';
+ 	    	for(j=0;j<caretaker.rating.length;j++)
+ 	    		{
+ 	    			
+ 	    		switch(caretaker.rating[j]){
+ 	    		case 1 :
+ 	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+ 	    			break;
+ 	    		case 2 :
+ 	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+ 	    			break;
+ 	    		case 3 :
+ 	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+ 	    			break;
+ 	    		case 4 :
+ 	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+ 	    			break;
+ 	    		case 5 :
+ 	    			rpath='<img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/><img class=\"rstars\" src=\"img/star.png\" alt=\"rating\"/>';
+ 	    			break;
+ 	    		
+ 	    		}
+ 	    		
+ 	    		ctlist+='<div class=\"reviews col-md-7\"><p>'+rpath+'<b>  - </b>'+caretaker.custname[j]+'<br/><i>'+caretaker.comments[j]+'</i></p></div>';
+ 	    		
+ 	    		}
+ 	       }
+ 	       
+ 	       else
+ 	       {
+ 	    	  ctlist+='<label class=\"bigfont\">No reviews exist</label><br/>'; 
+ 	       }
+ 	    	ctlist+='</div></div></div>';
+ 	    	
+ 	    	ctlist+='<div class=\"row well col-md-12\"><fieldset class=\"ypref row\"><legend>Your Preference</legend><form>'+
+ 	    	'<label class=\"col-md-2\">Select dates:</label><div class=\"col-md-4\"><label for=\"from\">From</label><input type=\"text\" id=\"from\" name=\"from\"><label for=\"to\">to</label> <input type=\"text\" id=\"to\" name=\"to\"></div><div class=\"col-md-4\">Blocked Dates:&nbsp;&nbsp;<i>'+BD+'</i></div><br/><br/>'+
+ 	    	'<div class=\"col-md-10\"><label class=\"col-md-2\">Services:</label>'+chk+
+ 	    	'</div><div id=\"profbtn\" class=\"col-md-12\"><span class=\"col-md-10\">&nbsp;&nbsp;</span><a class=\"btn btn_red col-md-2\" onclick=\"myFunction()\">Book Service</a></div></form></fieldset></div>';
+ 	    	
+ 	    	
+ 	    	ctlist+='<div class=\"row well col-md-12\"><fieldset class=\"ypref row\"><legend>Your Review</legend><form>'+
+ 	    	'<label class=\"col-md-1\">Rate:</label><div class=\"col-md-11\"><span class=\"star-rating star-5\">'+
+ 	    	'<input type=\"radio\" name=\"rating\" value=\"1\"><i></i><input type=\"radio\" name=\"rating\" value=\"2\"><i></i><input type=\"radio\" name=\"rating\" value=\"3\"><i></i><input type=\"radio\" name=\"rating\" value=\"4\"><i></i><input type=\"radio\" name=\"rating\" value=\"5\"><i></i></span></div>'+
+ 	    	'<label class=\"col-md-1\">Comment:</label><div class=\"col-md-11\"><textarea id=\"comment\" class=\"reviews\" rows="3" cols="100"></textarea></div>'+
+ 	    	'<div id=\"profbtn\" class=\"col-md-12\"><span class=\"col-md-10\">&nbsp;&nbsp;&nbsp;&nbsp;</span><a class=\"btn btn_red col-md-2\" onclick=\"insertRating()\">Update</a></div></form></fieldset></div>'+
+ 	    	'<div class=\"col-md-12\" id=\"reco\"><h2 align=\"center\">Recommendations</h2><div class=\"cover-container\">'+
+ 	    	'<div class=\"cover-item\"><p><img src=\"img/page1_img2.jpg\" alt=\"prod2\"/><p>John Doe<br/>$11</p></div>'+
+ 	    	'<div class=\"cover-item\"><p><img src=\"img/page1_img1.jpg\" alt=\"prod1\"/><p>Alice Brown<br/>$13</p></div>'+
+ 	    	'<div class=\"cover-item\"><p><img src=\"img/page1_img2.jpg\" alt=\"prod2\"/><p>Rick<br/>$20</p></div>'+
+ 	    	'<div class=\"cover-item\"><p><img src=\"img/page1_img3.jpg\" alt=\"prod1\"/><p>Smiley<br/>$12</p></div></div></div>'+
+			'</div>';
+ 	    	/* '</div>'; */
+ 	       
+ 	      listHere.innerHTML=ctlist;
+    	
+    },
+	error: function(xhr,status,error)
+	{
+		alert("Login failed.");
+	}
+   
+});
+
+	 
+	
+function myFunction() {
+					if(sessionStorage.length>0)
+						{
+						var Rate = sessionStorage.getItem("Rate");
+						var ser = sessionStorage.getItem("service1");
+						
+						insertRating();
+						}
+				
+				
+				
+				from = document.getElementById("from").value;
+				to = document.getElementById("to").value;
+				ID = sessionStorage.getItem("caretaker");
+				BD = sessionStorage.getItem("BD");
+				
+				var arr1 = ser.split(",");
+				var t = 0;
+				
+				for( var i in arr1)
+				{ var j = arr1[i];
+				
+				if(document.getElementById(j).checked)
+				//sessionStorage.setItem("shopitem",document.getElementById(j).value);
+				t=t+1;
+				}
+				
+				
+				
+				var date1 = new Date(from);
+				
+				var date2 = new Date(to);
+				
+				var t2 = date2.getTime();
+				var t1 = date1.getTime();
+				var result = parseInt((t2-t1)/(24*3600*1000));
+				sessionStorage.setItem("totalcharge",result*Rate*t);
+				sessionStorage.setItem("selectfrom",from);
+				sessionStorage.setItem("selectto",to);
+				
+				var url = "rest/hello/reserve";
+				
+				
+				var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+				xmlhttp.open("POST", url);
+				xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+				xmlhttp.onreadystatechange = function () {
+					   if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+					       alert(xmlhttp.responseText);
+					   }
+					}
+				xmlhttp.send(JSON.stringify({"fromDate":from, "toDate":to, "BlDate":BD,"ID":ID}));
+				window.location.href="Shopcart.html";
+				
+
+}
+
+		
+function insertRating(){
+	
+	
+	
+	var rateparam={};
+	$('input[name="rating"]:checked').each(function() {
+		
+		rateparam = { 'rating' : this.value, 'customerid' : sessionStorage.getItem("uid"), 'caretaker' : sessionStorage.getItem("caretaker"), 'comment' : document.getElementById("comment").value  };
+		   
+		});
+		var custreview = JSON.stringify(rateparam);
+	
+		if(sessionStorage.getItem("comment") || sessionStorage.getItem("rating"))
+			{
+		
+		$.ajax({
+	
+					    url : 'rest/approveList/insertRating',
+					    type: 'POST',
+					    data: custreview,
+						contentType: 'application/json; charset=utf-8',
+						    dataType : 'text',
+						    processData: true,
+						    async:false,
+					    success: function(data)
+					    {
+					    	alert(data);
+					    },
+						error: function(xhr,status,error)
+						{
+							alert("comments update failed.");
+						}
+		});
+			}
+		
+}	
+		
+
+</script>
+</html>
